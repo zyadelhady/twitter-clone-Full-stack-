@@ -1,0 +1,35 @@
+.Home {
+  // width: 175rem;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+  min-height: 100vh;
+
+  @media (max-width: 700px) {
+    width: auto;
+  }
+  &_Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    svg {
+      // color: currentColor;
+      font-size: 4rem;
+    }
+    a {
+      text-decoration: none;
+      padding: 1.5rem;
+      font-size: 2rem;
+    }
+  }
+}
+
+.Border {
+  border-bottom: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.Spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+  min-height: 100vh;
+}

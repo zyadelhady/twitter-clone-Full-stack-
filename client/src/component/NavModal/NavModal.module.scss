@@ -1,0 +1,40 @@
+.NavModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  a {
+    text-decoration: none;
+  }
+  &_Modal {
+    position: relative;
+    z-index: 8000;
+
+    &_Photo {
+      padding: 1.8rem;
+
+      img {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  &_Topics {
+    // padding: 1.8rem;
+
+    &_Svg {
+      color: currentColor;
+      margin-right: 1.2rem;
+      font-size: 2.2rem;
+    }
+  }
+}
+
+.Border {
+  border-bottom: 1px solid rgba(204, 204, 204, 0.2);
+}

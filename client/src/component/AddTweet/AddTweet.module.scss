@@ -1,0 +1,56 @@
+.AddTweet {
+  display: flex;
+  border-bottom: 12px solid rgba(204, 204, 204, 0.2);
+  input {
+    display: none;
+  }
+  &_Left {
+    margin-right: 1rem;
+    img {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+    }
+  }
+
+  &_Right {
+    display: flex;
+    flex-direction: column;
+    &_Image {
+      width: 10rem;
+      height: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+      img {
+        width: 10rem;
+        height: 8rem;
+      }
+    }
+
+    width: 100%;
+    &_TextArea {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: 2rem;
+      padding: 1.5rem 0;
+      font-family: inherit;
+      resize: none;
+      overflow: hidden;
+    }
+
+    &_Bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &_Icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}

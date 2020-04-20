@@ -1,0 +1,18 @@
+.TrendsItem {
+  padding: 0.5rem 1.5rem;
+  &_Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    svg {
+      color: currentColor;
+    }
+  }
+  &_Text {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.Border {
+  border-bottom: 1px solid rgba(204, 204, 204, 0.2);
+}

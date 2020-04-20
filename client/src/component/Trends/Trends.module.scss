@@ -1,0 +1,24 @@
+.Trends {
+  padding: 1.5rem;
+  position: fixed;
+  width: 34rem;
+  margin-top: 5.2rem;
+  &_BG {
+    &_Header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &_SVG {
+        svg {
+          color: currentColor;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.Border {
+  border-bottom: 1px solid rgba(204, 204, 204, 0.2);
+}

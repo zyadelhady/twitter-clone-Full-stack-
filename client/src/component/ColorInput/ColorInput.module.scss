@@ -1,0 +1,28 @@
+.ColorInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media only screen and (max-width: 1024px) {
+    width: 33.333%;
+  }
+  &_Label {
+    cursor: pointer;
+    position: relative;
+    &_Checked {
+      position: absolute;
+      font-size: 2em;
+      top: 6px;
+      left: 6px;
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  &_Input {
+    display: none;
+  }
+  &_Img {
+    margin-top: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

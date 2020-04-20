@@ -1,0 +1,66 @@
+.DisplayModal {
+  position: fixed;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 2rem;
+  overflow: hidden;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+    height: 100%;
+    padding: 11rem;
+  }
+  &_Header {
+    text-align: center;
+  }
+  &_Tweet {
+    width: 70%;
+    align-self: center;
+  }
+
+  &_Section {
+    display: flex;
+    flex-direction: column;
+
+    &_BGS {
+      padding: 1rem;
+      border-radius: 1rem;
+      justify-content: space-between;
+      &_Form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @media only screen and (max-width: 1024px) {
+          & > :first-child {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+      &_BG {
+        display: flex;
+        justify-content: space-between;
+        @media only screen and (max-width: 1024px) {
+          flex-direction: column;
+          :nth-child(1) {
+            margin-bottom: 1rem;
+          }
+          :nth-child(2) {
+            margin-bottom: 1rem;
+          }
+          :nth-child(3) {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.DisplayContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 50;
+}

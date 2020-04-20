@@ -1,0 +1,27 @@
+.BackgroundInput {
+  display: inline-block;
+  height: 6rem;
+  display: flex;
+
+  &_Input {
+    display: none;
+  }
+  &_Label {
+    &_Icon {
+      @media only screen and (max-width: 1024px) {
+        width: 15%;
+      }
+    }
+    &_Name {
+      width: 75%;
+      text-align: center;
+      margin-left: 0.2rem;
+    }
+    &_Checked {
+      position: relative;
+      top: 18px;
+      left: 22px;
+      color: rgb(255, 255, 255);
+    }
+  }
+}

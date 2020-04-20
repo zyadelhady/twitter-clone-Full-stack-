@@ -1,0 +1,76 @@
+.UserProfile {
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+  min-height: 100vh;
+
+  input {
+    display: none;
+  }
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+  &_Header {
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    &_Arrow {
+      margin-right: 1rem;
+    }
+
+    &_Info {
+    }
+  }
+
+  &_Info {
+    &_Cover {
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 15%;
+      }
+    }
+    &_Photo {
+      display: flex;
+      // align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+
+      &_Image {
+        img {
+          width: 16rem;
+          height: 16rem;
+          border-radius: 50%;
+          position: absolute;
+          top: 27rem;
+          left: 60rem;
+
+          @media (max-width: 700px) {
+            width: 12rem;
+            height: 12rem;
+            top: 20rem;
+            left: 9rem;
+          }
+        }
+      }
+    }
+
+    &_Name {
+      padding: 1.7rem;
+      padding-top: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.Border {
+  border-bottom: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.Spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(204, 204, 204, 0.2);
+  min-height: 100vh;
+}

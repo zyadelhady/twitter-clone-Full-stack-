@@ -1,0 +1,51 @@
+.Login {
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  padding: 3rem;
+  flex-direction: column;
+
+  &_Logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    svg {
+      color: #fff;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &_Form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @media (max-width: 700px) {
+    width: auto;
+  }
+}
+
+.Button {
+  border-radius: 5rem;
+  width: 25%;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.Link {
+  margin-top: 2rem;
+  color: rgb(27, 149, 224);
+  text-decoration: none;
+}

@@ -1,0 +1,16 @@
+.GridLayout {
+}
+.Layout {
+}
+.Margin {
+  margin-left: 25.2rem;
+  border-left: 1px solid rgba(204, 204, 204, 0.2);
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .Margin {
+    margin-left: 8rem;
+  }
+}
