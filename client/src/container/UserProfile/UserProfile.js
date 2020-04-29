@@ -5,9 +5,18 @@ import { useParams, useHistory } from 'react-router-dom';
 import { MdArrowBack } from 'react-icons/md';
 import { Button } from '../../component/Button/Button';
 import Tweet from '../../component/Tweet/Tweet';
-// import { connect } from 'react-redux';
 import axios from '../../axios';
 import { Spinner } from '../../component/Spinner/Spinner';
+import { UserHeader } from '../../component/UserHeader/UserHeader';
+
+const P = styled.p`
+  color: ${(props) =>
+    props.secondary ? props.theme.textSecondry : props.theme.textPrimary};
+
+  font-size: ${(props) => (props.secondary ? '1.5rem' : '2rem')};
+  font-weight: ${(props) => (props.secondary ? '400' : '700')};
+  margin-top: ${(props) => (props.secondary ? '.4rem' : '')};
+`;
 
 export const UserProfile = () => {
   const { username } = useParams();
@@ -36,41 +45,6 @@ export const UserProfile = () => {
   useEffect(() => {
     getData();
   }, [getData]);
-
-  const P = styled.p`
-    color: ${(props) =>
-      props.secondary ? props.theme.textSecondry : props.theme.textPrimary};
-
-    font-size: ${(props) => (props.secondary ? '1.5rem' : '2rem')};
-    font-weight: ${(props) => (props.secondary ? '400' : '700')};
-    margin-top: ${(props) => (props.secondary ? '.4rem' : '')};
-  `;
-
-  const ProfileButton = styled.button`
-    border: 1px solid ${({ theme }) => theme.color};
-    outline: none;
-    background: transparent;
-    border-radius: 3rem;
-    padding: 0.8rem 1.5rem;
-    color: ${({ theme }) => theme.color};
-    cursor: pointer;
-    font-weight: 900;
-
-    &:hover {
-      background: ${({ theme }) => theme.hover};
-    }
-  `;
-
-  const Img = styled.img`
-    border: 4.5px solid ${({ theme }) => theme.bgPrimary};
-  `;
-
-  const Bio = styled.p`
-    color: ${(props) => props.theme.textPrimary};
-    font-size: 1.6rem;
-    font-weight: 400;
-    margin-top: 1rem;
-  `;
 
   const render = Object.values(tweets).map((i) => {
     return (
@@ -132,34 +106,7 @@ export const UserProfile = () => {
         </div>
       ) : (
         <React.Fragment>
-          <div className={classes.UserProfile_Info}>
-            <div className={classes.UserProfile_Info_Cover}>
-              <input id="coverImage" type="file" onChange={getCoverImage} />
-              <label htmlFor="coverImage">
-                <img
-                  src={`http://127.0.0.1:4000/${user.cover}`}
-                  // src={usercover}
-                  alt="user cover"
-                />
-              </label>
-            </div>
-            <div className={classes.UserProfile_Info_Photo}>
-              <div className={classes.UserProfile_Info_Photo_Image}>
-                <input id="userImage" type="file" onChange={getUserImage} />
-                <label htmlFor="userImage">
-                  <Img src={`http://127.0.0.1:4000/${user.photo}`} alt="user" />
-                </label>
-              </div>
-              <div className={classes.UserProfile_Info_Photo_Button}>
-                <ProfileButton>Edit Profile</ProfileButton>
-              </div>
-            </div>
-            <div className={classes.UserProfile_Info_Name}>
-              <P>{user.name}</P>
-              <P secondary>@{username}</P>
-              <Bio>welcome to my profile</Bio>
-            </div>
-          </div>
+          <UserHeader user={user} username={username} />
           <div className={classes.Border}></div>
           <div className="">{render}</div>
         </React.Fragment>

@@ -42,14 +42,14 @@ function App(props) {
             <Route path="/notifications">
               <Notifications />
             </Route>
-            <Route path="/photo/:id">
-              <PhotoModal />
-            </Route>
             <Route path="/user/:username">
               <UserProfile />
             </Route>
             <Route path="/display">
               <DisplayModal />
+            </Route>
+            <Route path="/:username/photo/:id">
+              <PhotoModal />
             </Route>
             <Route>
               <Redirect />

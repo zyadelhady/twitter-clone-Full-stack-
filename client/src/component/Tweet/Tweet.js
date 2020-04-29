@@ -68,8 +68,9 @@ const Tweet = (props) => {
 
           {props.tweetimg && (
             <Link
+              exact
               to={{
-                pathname: `photo/${props.tweetid}`,
+                pathname: `/${props.handle}/photo/${props.tweetid}`,
                 state: { img: `http://127.0.0.1:4000/${props.tweetimg}` },
               }}
             >

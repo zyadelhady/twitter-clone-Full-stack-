@@ -22,44 +22,44 @@
   }
 
   &_Info {
-    &_Cover {
-      width: 100%;
+    // &_Cover {
+    //   width: 100%;
 
-      img {
-        width: 100%;
-        height: 15%;
-      }
-    }
-    &_Photo {
-      display: flex;
-      // align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
+    //   img {
+    //     width: 100%;
+    //     height: 15%;
+    //   }
+    // }
+    // &_Photo {
+    //   display: flex;
+    //   position: relative;
+    //   justify-content: space-between;
+    //   padding: 1rem;
+    //   height: 5rem;
 
-      &_Image {
-        img {
-          width: 16rem;
-          height: 16rem;
-          border-radius: 50%;
-          position: absolute;
-          top: 27rem;
-          left: 60rem;
+    //   &_Image {
+    //     img {
+    //       width: 16rem;
+    //       height: 16rem;
+    //       border-radius: 50%;
+    //       position: absolute;
+    //       top: -10rem;
+    //       left: 1rem;
 
-          @media (max-width: 700px) {
-            width: 12rem;
-            height: 12rem;
-            top: 20rem;
-            left: 9rem;
-          }
-        }
-      }
-    }
+    //       @media (max-width: 700px) {
+    //         width: 12rem;
+    //         height: 12rem;
+    //         top: -5rem;
+    //       }
+    //     }
+    //   }
+    // }
 
-    &_Name {
-      padding: 1.7rem;
-      padding-top: 3rem;
-      margin-bottom: 1rem;
-    }
+    // &_Name {
+    //   padding: 1.7rem;
+    //   padding-top: 3rem;
+    //   margin-bottom: 1rem;
+    // }
   }
 }
 
