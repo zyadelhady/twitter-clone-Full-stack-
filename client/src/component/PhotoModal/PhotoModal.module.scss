@@ -10,16 +10,16 @@
   z-index: 1;
 
   &_Photo {
-    z-index: 200;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    height: 90%;
+    width: auto;
+    height: auto;
 
     img {
       max-width: 90%;
       max-height: 90%;
+      z-index: 200;
     }
   }
 }

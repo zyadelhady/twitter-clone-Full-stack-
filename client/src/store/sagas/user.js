@@ -43,9 +43,27 @@ export function* logoutSaga() {
   }
 }
 
+export function* sendUpdatedUserSaga(action) {
+  try {
+    yield put(actionTypes.sendUpdatedUser());
+    const fd = new FormData();
+    Object.entries(action.data).forEach(([key, value]) => {
+      if (value) {
+        fd.append(key, value);
+      }
+    });
+    const response = yield axios.post('users/update-me', fd);
+
+    yield put(actionTypes.sendUpdatedUserDone(response.data.data.user));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export function* watchUser() {
   yield takeEvery(actionTypes.GET_USER_SIGNUP_START, signupSaga);
   yield takeEvery(actionTypes.GET_USER_SIGNIN_START, signinSaga);
   yield takeEvery(actionTypes.GET_ME, getMeSaga);
   yield takeEvery(actionTypes.LOGOUT, logoutSaga);
+  yield takeEvery(actionTypes.SEND_UPDATED_USER_START, sendUpdatedUserSaga);
 }

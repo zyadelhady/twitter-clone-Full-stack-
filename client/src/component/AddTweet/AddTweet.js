@@ -56,11 +56,11 @@ const AddTweet = (props) => {
 
   const sendTweet = () => {
     const text = textareaRef.current.value;
-    const fd = new FormData();
-    if (tweetImage) fd.append('tweetPhoto', tweetImage, tweetImage.name);
-    fd.append('text', text);
+    if (text || tweetImage) {
+      const fd = new FormData();
+      if (tweetImage) fd.append('tweetPhoto', tweetImage, tweetImage.name);
+      fd.append('text', text);
 
-    if (text || fd) {
       props.sendTweet(fd);
       setPreviewImage(null);
     }
@@ -128,7 +128,7 @@ const AddTweet = (props) => {
           <div className={classes.AddTweet_Right_Bottom}>
             <TweetButton
               onClick={sendTweet}
-              disabled={props.postLoading ? true : false}
+              disabled={props.postLoading}
               type="button"
             >
               Tweet

@@ -22,7 +22,6 @@ const upload = multer({
 
 exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
   if (!req.files.photo) return next();
-  console.log('userPhoto');
 
   req.files.photo[0].filename = `user-photo-${req.user.id}-${Date.now()}.jpeg`;
 
@@ -72,15 +71,18 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   if (req.body.password || req.body.passwordConfirm) {
     return next(new AppError('this route is not for password update', 400));
   }
-
-  const filterBody = filterObj(req.body, 'name', 'email');
+  if (req.body.username) {
+    req.body.username.replace(/\s+/g, '');
+  }
+  const filterBody = filterObj(req.body, 'name', 'email', 'username', 'Bio');
 
   if (req.files) {
-    const { fieldname } = req.files.cover
-      ? req.files.cover[0]
-      : req.files.photo[0];
-
-    filterBody[fieldname] = req.files[fieldname][0].filename;
+    if (req.files.cover) {
+      filterBody.cover = req.files.cover[0].filename;
+    }
+    if (req.files.photo) {
+      filterBody.photo = req.files.photo[0].filename;
+    }
   }
 
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filterBody, {

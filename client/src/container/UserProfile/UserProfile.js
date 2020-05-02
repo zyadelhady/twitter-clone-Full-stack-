@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import classes from './UserProfile.module.scss';
 import styled from 'styled-components';
 import { useParams, useHistory } from 'react-router-dom';
@@ -8,6 +8,8 @@ import Tweet from '../../component/Tweet/Tweet';
 import axios from '../../axios';
 import { Spinner } from '../../component/Spinner/Spinner';
 import { UserHeader } from '../../component/UserHeader/UserHeader';
+import { useDispatch } from 'react-redux';
+import * as actionTypes from '../../store/actions/actions';
 
 const P = styled.p`
   color: ${(props) =>
@@ -19,12 +21,20 @@ const P = styled.p`
 `;
 
 export const UserProfile = () => {
+  const dispatch = useDispatch();
+  const [userUpdatedData, setUserUpdatedData] = useState({});
   const { username } = useParams();
   const { goBack } = useHistory();
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [tweets, setTweets] = useState([]);
   const [tweetsNum, setTweetsnum] = useState();
+  const [editable, setEditable] = useState(false);
+  const [previewImage, setPreviewImage] = useState();
+  const [coverImage, setCoverImage] = useState();
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const bioRef = useRef(null);
 
   const getData = useCallback(async () => {
     setLoading(true);
@@ -34,13 +44,14 @@ export const UserProfile = () => {
       const tweets = await axios.get(`users/${username}/tweets/`);
       setTweets(tweets.data.data.data);
       setTweetsnum(tweets.data.results);
-
       setLoading(false);
     } catch (e) {
       console.log(e.response);
       setLoading(false);
     }
   }, [username]);
+
+  console.log(user);
 
   useEffect(() => {
     getData();
@@ -60,30 +71,66 @@ export const UserProfile = () => {
     );
   });
 
-  const getUserImage = async (e) => {
-    try {
-      let file;
-      file = e.target.files[0];
-      const fd = new FormData();
-      fd.append('photo', file, file.name);
-      const response = await axios.post('users/update-me', fd);
-      console.log(response);
-    } catch (err) {
-      console.log(err.response);
+  const getUserImage = (e) => {
+    let file;
+    file = e.target.files[0];
+    if (file) {
+      setUserUpdatedData((prev) => {
+        return { ...prev, photo: file };
+      });
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        setPreviewImage(e.target.result);
+      };
+
+      reader.readAsDataURL(file);
     }
   };
 
-  const getCoverImage = async (e) => {
-    try {
-      let file;
-      file = e.target.files[0];
-      const fd = new FormData();
-      fd.append('cover', file, file.name);
-      const response = await axios.post('users/update-me', fd);
-      console.log(response);
-    } catch (err) {
-      console.log(err.response);
+  const getCoverImage = (e) => {
+    let file;
+    file = e.target.files[0];
+    if (file) {
+      setUserUpdatedData((prev) => {
+        return { ...prev, cover: file };
+      });
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        setCoverImage(e.target.result);
+      };
+
+      reader.readAsDataURL(file);
     }
+  };
+
+  const nameChange = (e) => {
+    setUserUpdatedData((prev) => {
+      return { ...prev, name: nameRef.current.value };
+    });
+  };
+  console.log(userUpdatedData);
+
+  const emailChange = (e) => {
+    setUserUpdatedData((prev) => {
+      return { ...prev, email: emailRef.current.value };
+    });
+  };
+  const bioChange = (e) => {
+    setUserUpdatedData((prev) => {
+      return { ...prev, Bio: bioRef.current.value };
+    });
+  };
+
+  const saveEdit = () => {
+    dispatch(actionTypes.sendUpdatedUserStart(userUpdatedData));
+  };
+
+  const EditProfile = () => {
+    setEditable(true);
+  };
+
+  const closeEdit = () => {
+    setEditable(false);
   };
 
   return (
@@ -106,7 +153,31 @@ export const UserProfile = () => {
         </div>
       ) : (
         <React.Fragment>
-          <UserHeader user={user} username={username} />
+          {editable ? (
+            <UserHeader.Edit
+              user={user}
+              username={username}
+              closeEdit={closeEdit}
+              getCoverImage={getCoverImage}
+              getUserImage={getUserImage}
+              saveEdit={saveEdit}
+              nameChange={nameChange}
+              emailChange={emailChange}
+              bioChange={bioChange}
+              nameRef={nameRef}
+              emailRef={emailRef}
+              bioRef={bioRef}
+              previewImage={previewImage}
+              coverImage={coverImage}
+            />
+          ) : (
+            <UserHeader.Default
+              user={user}
+              username={username}
+              EditProfile={EditProfile}
+            />
+          )}
+
           <div className={classes.Border}></div>
           <div className="">{render}</div>
         </React.Fragment>

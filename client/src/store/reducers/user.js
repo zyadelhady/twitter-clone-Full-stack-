@@ -4,6 +4,7 @@ let initialState = {
   user: null,
   loading: false,
   error: '',
+  sendingUpdates: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,6 +31,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
         user: null,
+      };
+    case actionTypes.SEND_UPDATED_USER:
+      return {
+        ...state,
+        sendingUpdates: true,
+      };
+    case actionTypes.SEND_UPDATED_USER_DONE:
+      return {
+        ...state,
+        sendingUpdates: false,
+        user: { ...action.data },
       };
 
     default:

@@ -25,13 +25,15 @@ const usersSchema = new mongoose.Schema({
     default: 'default.jpg'
   },
   cover: {
-    type: String
+    type: String,
+    default: 'defaultCover.jpg'
   },
   role: {
     type: String,
     enum: ['user', 'admin'],
     default: 'user'
   },
+  Bio: { type: String, default: 'welcome to my profile ' },
   password: {
     type: String,
     required: [true, 'Please provide a password'],

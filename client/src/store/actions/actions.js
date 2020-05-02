@@ -9,6 +9,10 @@ export const SEND_TWEET_START = 'SEND_TWEET_START';
 export const SEND_TWEET = 'SEND_TWEET';
 export const SEND_TWEET_DONE = 'SEND_TWEET_DONE';
 
+export const SEND_UPDATED_USER_START = 'SEND_UPDATED_USER_START';
+export const SEND_UPDATED_USER = 'SEND_UPDATED_USER';
+export const SEND_UPDATED_USER_DONE = 'SEND_UPDATED_USER_DONE';
+
 export const GET_USER_SIGNIN_START = 'GET_USER_SIGNIN_START';
 export const GET_USER_SIGNUP_START = 'GET_USER_SIGNUP_START';
 
@@ -21,6 +25,24 @@ export const GET_ME = 'GET_ME';
 
 export const LOGOUT = 'LOGOUT';
 export const SET_LOGOUT = 'SET_LOGOUT';
+
+export const sendUpdatedUserStart = (data) => {
+  return {
+    type: SEND_UPDATED_USER_START,
+    data: data,
+  };
+};
+export const sendUpdatedUser = () => {
+  return {
+    type: SEND_UPDATED_USER,
+  };
+};
+export const sendUpdatedUserDone = (data) => {
+  return {
+    type: SEND_UPDATED_USER_DONE,
+    data: data,
+  };
+};
 
 export const changeBackground = (background) => {
   localStorage.setItem('background', background);
