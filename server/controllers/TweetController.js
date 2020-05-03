@@ -57,9 +57,19 @@ exports.getTweets = catchAsync(async (req, res, next) => {
     filter.user = user._id;
   }
 
+  const page = req.query.page * 1 || 1;
+  const limit = req.query.limit * 1 || 10;
+  const skip = (page - 1) * limit;
+
   const tweets = await Tweet.find(filter)
-    .populate({ path: 'user' })
-    .sort('-createdAt');
+    .sort('-createdAt')
+    .skip(skip)
+    .limit(limit)
+    .populate({ path: 'user' });
+
+  // tweets = tweets.skip(skip).limit(limit);
+
+  // tweets = tweets.populate({ path: 'user' }).sort('-createdAt');
 
   res.status(200).json({
     status: 'success',

@@ -112,9 +112,10 @@ export const getUserDone = (data) => {
   };
 };
 
-export const getTweetsStart = () => {
+export const getTweetsStart = (data) => {
   return {
     type: GET_TWEETS_START,
+    data: data,
   };
 };
 

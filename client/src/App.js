@@ -18,11 +18,11 @@ import DisplayModal from './component/DisplayModal/DisplayModal';
 
 function App(props) {
   const getMe = props.getMe;
-  const getTweets = props.getTweets;
+  // const getTweets = props.getTweets;
 
-  useEffect(() => {
-    getTweets();
-  }, [getTweets]);
+  // useEffect(() => {
+  //   getTweets();
+  // }, [getTweets]);
 
   useEffect(() => {
     getMe();

@@ -4,6 +4,7 @@ let initialState = {
   tweets: [],
   loading: false,
   sendTweetLoading: false,
+  page: 1,
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,7 +18,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        tweets: [...action.data],
+        tweets: [...state.tweets, ...action.data],
+        page: state.page + 1,
       };
     case actionTypes.SEND_TWEET:
       return {
