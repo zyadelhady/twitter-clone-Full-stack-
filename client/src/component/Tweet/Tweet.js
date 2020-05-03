@@ -12,6 +12,9 @@ const Tweet = (props) => {
     color: ${({ theme }) => theme.textPrimary};
     font-weight: ${(props) => (props.paragraph ? '400' : '700')};
     font-family: 'Roboto';
+    a {
+      color: ${({ theme }) => theme.color};
+    }
   `;
   const Span = styled.span`
     color: ${({ theme }) => theme.textSecondry};
@@ -26,6 +29,11 @@ const Tweet = (props) => {
       background-color: ${({ theme }) => theme.bgHover};
     }
   `;
+
+  let text = props.tweet.replace(
+    /((\w+:\/\/\S+)|(\w+[.:]\w+\S+))[^\s,.]/gi,
+    (match) => `<a href=${match} target="_blank">${match}</a>`
+  );
 
   return (
     <Div className={classes.Tweet}>
@@ -63,7 +71,12 @@ const Tweet = (props) => {
                 {props.name} <Span>@{props.handle}</Span>
               </P>
             </Link>
-            <P paragraph>{props.tweet}</P>
+            <P
+              paragraph
+              dangerouslySetInnerHTML={{
+                __html: text,
+              }}
+            ></P>
           </div>
 
           {props.tweetimg && (
