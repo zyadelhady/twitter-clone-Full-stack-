@@ -70,13 +70,16 @@ export const UserHeader = {
       <div className={classes.UserHeader}>
         <div className={classes.UserHeader_Cover}>
           <img
-            src={`http://127.0.0.1:4000/${props.user.cover}`}
+            src={`https://twitter-clone-zyad.herokuapp.com/${props.user.cover}`}
             alt="user cover"
           />
         </div>
         <div className={classes.UserHeader_Photo}>
           <div className={classes.UserHeader_Photo_Image}>
-            <Img src={`http://127.0.0.1:4000/${props.user.photo}`} alt="user" />
+            <Img
+              src={`https://twitter-clone-zyad.herokuapp.com/${props.user.photo}`}
+              alt="user"
+            />
           </div>
           {props.username === userSelf ? (
             <div className={classes.UserHeader_Photo_Button}>
@@ -111,7 +114,7 @@ export const UserHeader = {
               src={
                 props.coverImage
                   ? props.coverImage
-                  : `http://127.0.0.1:4000/${props.user.cover}`
+                  : `https://twitter-clone-zyad.herokuapp.com/${props.user.cover}`
               }
               alt="user cover"
             />
@@ -128,7 +131,7 @@ export const UserHeader = {
                 src={
                   props.previewImage
                     ? props.previewImage
-                    : `http://127.0.0.1:4000/${props.user.photo}`
+                    : `https://twitter-clone-zyad.herokuapp.com/${props.user.photo}`
                 }
                 alt="user"
               />

@@ -13,7 +13,6 @@ const cors = require('cors');
 const usersRouter = require('./routes/usersRouter');
 const tweetsRouter = require('./routes/tweetsRouter');
 
-const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();

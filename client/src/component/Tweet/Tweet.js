@@ -48,7 +48,7 @@ const Tweet = (props) => {
               onMouseEnter={() => setShowModal(true)}
               onMouseLeave={() => setShowModal(false)}
               alt="user"
-              src={`http://127.0.0.1:4000/${props.userimg}`}
+              src={`https://twitter-clone-zyad.herokuapp.com/${props.userimg}`}
             />
           </Link>
           {showModal ? (
@@ -84,12 +84,14 @@ const Tweet = (props) => {
               exact
               to={{
                 pathname: `/${props.handle}/photo/${props.tweetid}`,
-                state: { img: `http://127.0.0.1:4000/${props.tweetimg}` },
+                state: {
+                  img: `https://twitter-clone-zyad.herokuapp.com/${props.tweetimg}`,
+                },
               }}
             >
               <div
                 style={{
-                  backgroundImage: `url(http://127.0.0.1:4000/${props.tweetimg})`,
+                  backgroundImage: `url(https://twitter-clone-zyad.herokuapp.com/${props.tweetimg})`,
                 }}
                 className={classes.TheTweet_Right_Image}
               ></div>

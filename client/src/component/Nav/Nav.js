@@ -140,7 +140,10 @@ const Nav = (props) => {
               className={classes.Nav_link}
               to={`/user/${props.username}`}
             >
-              <img alt="user" src={`http://127.0.0.1:4000/${props.image}`} />
+              <img
+                alt="user"
+                src={`https://twitter-clone-zyad.herokuapp.com/${props.image}`}
+              />
               <p className={classes.Nav_link_Title}>Profile</p>
             </NavLink>
           </Li>
