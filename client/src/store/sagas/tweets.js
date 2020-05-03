@@ -9,7 +9,6 @@ export function* getTweetsSaga(action) {
       `tweets?page=${action.data.page}&limit=${action.data.limit}/`
     );
     yield put(actionTypes.getTweetsDone(response.data.data.data));
-    console.log(response.data.data.data);
   } catch (e) {
     console.log(e.response);
   }

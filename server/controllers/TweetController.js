@@ -35,7 +35,6 @@ exports.addTweet = catchAsync(async (req, res, next) => {
     user: req.user._id
   };
   if (req.file) createObj.photo = req.file.filename;
-  if (req.file) console.log(req.file);
 
   let newTweet = await Tweet.create(createObj);
 

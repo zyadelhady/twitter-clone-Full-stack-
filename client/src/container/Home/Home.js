@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './Home.module.scss';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -25,8 +25,6 @@ const Home = (props) => {
   `;
 
   const page = props.page;
-
-  console.log(page);
 
   useEffect(() => {
     dispatch(actionTypes.getTweetsStart({ page, limit: 10 }));

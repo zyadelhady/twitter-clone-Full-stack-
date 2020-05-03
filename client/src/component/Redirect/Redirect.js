@@ -17,7 +17,6 @@ const mapStateToProps = (state) => {
 
 export const Redirect = connect(mapStateToProps)((props) => {
   const history = useHistory();
-  console.log(history);
 
   useEffect(() => {
     if (props.user) {

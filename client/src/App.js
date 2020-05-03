@@ -17,12 +17,13 @@ import Login from './container/Auth/Login/Login';
 import DisplayModal from './component/DisplayModal/DisplayModal';
 
 function App(props) {
-  const getMe = props.getMe;
-  // const getTweets = props.getTweets;
+  useEffect(() => {
+    console.log(`Hello my name is zyad , i'm backend developer`);
+    console.log('my github : https://github.com/zyadelhady');
+    console.log('my email : zyade40@gmail.com');
+  }, []);
 
-  // useEffect(() => {
-  //   getTweets();
-  // }, [getTweets]);
+  const getMe = props.getMe;
 
   useEffect(() => {
     getMe();
@@ -107,7 +108,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getTweets: () => dispatch(actionTypes.getTweetsStart()),
     getMe: () => dispatch(actionTypes.getMe()),
   };
 };

@@ -46,12 +46,9 @@ export const UserProfile = () => {
       setTweetsnum(tweets.data.results);
       setLoading(false);
     } catch (e) {
-      console.log(e.response);
       setLoading(false);
     }
   }, [username]);
-
-  console.log(user);
 
   useEffect(() => {
     getData();
@@ -108,7 +105,6 @@ export const UserProfile = () => {
       return { ...prev, name: nameRef.current.value };
     });
   };
-  console.log(userUpdatedData);
 
   const emailChange = (e) => {
     setUserUpdatedData((prev) => {

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import classes from './AddTweet.module.scss';
 import styled from 'styled-components';
 import { TextareaAutosize } from '@material-ui/core';
@@ -76,10 +76,6 @@ const AddTweet = (props) => {
 
     reader.readAsDataURL(file);
   };
-
-  useEffect(() => {
-    console.log('00000000000');
-  });
 
   return (
     <Div className={classes.AddTweet}>
