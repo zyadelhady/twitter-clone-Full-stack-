@@ -3,6 +3,10 @@
  
 this is a project made with react and node js , it has many features like twitter 
 
+you should sign up first .
+
+you can change between light mode and dark mode .
+
 1 - you can add new tweet with image .
 
 2-you will see all tweets posted from other users .
