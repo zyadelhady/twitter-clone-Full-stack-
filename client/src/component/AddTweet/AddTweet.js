@@ -63,6 +63,7 @@ const AddTweet = (props) => {
 
       props.sendTweet(fd);
       setPreviewImage(null);
+      setTweetImage(null);
     }
   };
 

@@ -39,6 +39,10 @@ const Bio = styled.p`
   font-size: 1.6rem;
   font-weight: 400;
   margin-top: 1rem;
+
+  a {
+    color: ${(props) => props.theme.color};
+  }
 `;
 
 const I = styled.i`
@@ -64,6 +68,11 @@ const Input = styled.input`
 
 export const UserHeader = {
   Default: (props) => {
+    let userBio = props.user.Bio.replace(
+      /((\w+:\/\/\S+)|(\w+[.:]\w+\S+))[^\s,.]/gi,
+      (match) => `<a href=${match} target="_blank">${match}</a>`
+    );
+
     const userSelf = useSelector((state) => state.user.user.username);
 
     return (
@@ -94,7 +103,11 @@ export const UserHeader = {
         <div className={classes.UserHeader_Name}>
           <P>{props.user.name}</P>
           <P secondary>@{props.username}</P>
-          <Bio>{props.user.Bio}</Bio>
+          <Bio
+            dangerouslySetInnerHTML={{
+              __html: userBio,
+            }}
+          ></Bio>
         </div>
       </div>
     );

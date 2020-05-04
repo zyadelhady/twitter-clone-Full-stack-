@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import classes from '../Auth.module.scss';
-import { useForm } from 'react-hook-form';
 import { Input } from '../../../component/Input/Input';
 import { FaTwitter } from 'react-icons/fa';
 import styled from 'styled-components';
@@ -10,10 +9,20 @@ import { Link } from 'react-router-dom';
 import { Spinner } from '../../../component/Spinner/Spinner';
 
 const Signup = (props) => {
-  const { register, handleSubmit, errors } = useForm();
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
+  const passwordConfirmRef = useRef(null);
 
-  const onSubmit = (data) => {
-    props.getUser(data);
+  const onSubmit = () => {
+    props.getUser({
+      name: nameRef.current.value,
+      username: usernameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      passwordConfirm: passwordConfirmRef.current.value,
+    });
   };
 
   const P = styled.p`
@@ -40,60 +49,49 @@ const Signup = (props) => {
         <Spinner />
       ) : (
         <React.Fragment>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={classes.Login_Logo}>
-              <FaTwitter />
-              <P>Sign up to Twitter</P>
-            </div>
-            <div className={classes.Login_Form}>
-              {props.error && <P error>{props.error}</P>}
-              {errors.username && <P error>Your username is required</P>}
-              <Input
-                type="text"
-                placeholder="Your Username"
-                name="username"
-                refrence={register({ required: true, maxLength: 80 })}
-              />
-              {errors.name && <P error>Your name is required</P>}
-              <Input
-                type="text"
-                placeholder="Your Name"
-                name="name"
-                refrence={register({ required: true, maxLength: 80 })}
-              />
-              {errors.email && <P error>Your email is required</P>}
-              <Input
-                type="email"
-                placeholder="Your Email"
-                name="email"
-                refrence={register({ required: true, pattern: /^\S+@\S+$/i })}
-              />
-              {errors.password && <P error>Your password is required</P>}
-              <Input
-                type="password"
-                placeholder="Your Password"
-                name="password"
-                refrence={register({ required: true })}
-              />
-              {errors.passwordConfirm && (
-                <P error>Your password confirm is required</P>
-              )}
-
-              <Input
-                type="password"
-                placeholder="Your Password Confirm"
-                name="passwordConfirm"
-                refrence={register({ required: true })}
-              />
-
-              <Button className={classes.Button} type="submit">
-                Sign up
-              </Button>
-              <Link className={classes.Link} to="/login">
-                Log in now
-              </Link>
-            </div>
-          </form>
+          <div className={classes.Login_Logo}>
+            <FaTwitter />
+            <P>Sign up to Twitter</P>
+          </div>
+          <div className={classes.Login_Form}>
+            {props.error && <P error>{props.error}</P>}
+            <Input
+              type="text"
+              placeholder="Your Username"
+              name="username"
+              refrence={usernameRef}
+            />
+            <Input
+              type="text"
+              placeholder="Your Name"
+              name="name"
+              refrence={nameRef}
+            />
+            <Input
+              type="email"
+              placeholder="Your Email"
+              name="email"
+              refrence={emailRef}
+            />
+            <Input
+              type="password"
+              placeholder="Your Password"
+              name="password"
+              refrence={passwordRef}
+            />
+            <Input
+              type="password"
+              placeholder="Your Password Confirm"
+              name="passwordConfirm"
+              refrence={passwordConfirmRef}
+            />
+            <Button onClick={onSubmit} className={classes.Button} type="submit">
+              Sign up
+            </Button>
+            <Link className={classes.Link} to="/login">
+              Log in now
+            </Link>
+          </div>
         </React.Fragment>
       )}
     </div>

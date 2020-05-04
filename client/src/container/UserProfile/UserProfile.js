@@ -127,6 +127,9 @@ export const UserProfile = () => {
 
   const closeEdit = () => {
     setEditable(false);
+    setUserUpdatedData({});
+    setPreviewImage(null);
+    setCoverImage(null);
   };
 
   return (
