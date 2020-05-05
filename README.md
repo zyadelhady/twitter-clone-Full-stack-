@@ -7,7 +7,7 @@ you should sign up first .
 
 you can change between light mode and dark mode .
 
-1 - you can add new tweet with image .
+1 - you can add tweets , photos and update your profile .
 
 2-you will see all tweets posted from other users .
 
