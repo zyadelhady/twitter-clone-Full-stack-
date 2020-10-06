@@ -78,17 +78,11 @@ export const UserHeader = {
     return (
       <div className={classes.UserHeader}>
         <div className={classes.UserHeader_Cover}>
-          <img
-            src={`https://twitter-clone-zyad.herokuapp.com/${props.user.cover}`}
-            alt="user cover"
-          />
+          <img src={props.user.cover} alt="user cover" />
         </div>
         <div className={classes.UserHeader_Photo}>
           <div className={classes.UserHeader_Photo_Image}>
-            <Img
-              src={`https://twitter-clone-zyad.herokuapp.com/${props.user.photo}`}
-              alt="user"
-            />
+            <Img src={props.user.photo} alt="user" />
           </div>
           {props.username === userSelf ? (
             <div className={classes.UserHeader_Photo_Button}>

@@ -17,8 +17,11 @@ export function* signinSaga(action) {
     yield put(actionTypes.getUser());
     const response = yield axios.post('users/signin', { ...action.data });
 
+    console.log(response);
+
     yield put(actionTypes.getUserDone(response.data.data.user));
   } catch (e) {
+    console.log(e);
     yield put(actionTypes.setError(e.response.data.message));
   }
 }

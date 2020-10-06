@@ -1,5 +1,6 @@
 const multer = require('multer');
 const sharp = require('sharp');
+const cloudinary = require('cloudinary').v2;
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const User = require('../models/userModel');
@@ -78,7 +79,10 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 
   if (req.files) {
     if (req.files.cover) {
-      filterBody.cover = req.files.cover[0].filename;
+      const photo = await cloudinary.uploader.upload(
+        `data/${req.files.cover[0].filename}`
+      );
+      filterBody.cover = photo.secure_url;
     }
     if (req.files.photo) {
       filterBody.photo = req.files.photo[0].filename;
