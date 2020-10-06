@@ -81,10 +81,7 @@ const AddTweet = (props) => {
   return (
     <Div className={classes.AddTweet}>
       <div className={classes.AddTweet_Left}>
-        <img
-          src={`https://twitter-clone-zyad.herokuapp.com/${props.userimg}`}
-          alt="user"
-        />
+        <img src={props.userimg} alt="user" />
       </div>
       <div className={classes.AddTweet_Right}>
         <TextArea

@@ -23,7 +23,7 @@ app.use(helmet());
 
 // 1) GLOBAL MIDDLEWARES
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'https://localhost:3000', credentials: true }));
 
 app.options('*', cors());
 

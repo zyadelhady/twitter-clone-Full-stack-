@@ -22,11 +22,13 @@ const usersSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: 'default.jpg'
+    default:
+      'https://res.cloudinary.com/dd31ywtcr/image/upload/v1602022670/default_q0zp1l.jpg'
   },
   cover: {
     type: String,
-    default: 'defaultCover.jpg'
+    default:
+      'https://res.cloudinary.com/dd31ywtcr/image/upload/v1602022669/defaultCover_bxmnne.jpg'
   },
   role: {
     type: String,

@@ -48,7 +48,7 @@ const Tweet = (props) => {
               onMouseEnter={() => setShowModal(true)}
               onMouseLeave={() => setShowModal(false)}
               alt="user"
-              src={`https://twitter-clone-zyad.herokuapp.com/${props.userimg}`}
+              src={props.userimg}
             />
           </Link>
           {showModal ? (

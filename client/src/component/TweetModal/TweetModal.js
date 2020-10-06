@@ -36,10 +36,7 @@ export const TweetModal = (props) => {
     <Div className={classes.TweetModal}>
       <div className={classes.TweetModal_Header}>
         <div className={classes.TweetModal_Header_Photo}>
-          <img
-            src={`https://twitter-clone-zyad.herokuapp.com/${props.img}`}
-            alt="user"
-          />
+          <img src={props.img} alt="user" />
         </div>
         <div className={classes.TweetModal_Header_Button}>
           <Button>Follow</Button>

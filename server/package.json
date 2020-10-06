@@ -1,5 +1,5 @@
 {
-  "name": "natours",
+  "name": "twitter-clone",
   "version": "1.0.0",
   "description": "Learning node, express and mongoDB",
   "main": "app.js",
@@ -9,10 +9,11 @@
     "start:prod": "(set NODE_ENV=production) & nodemon server.js",
     "debug": "ndb server.js"
   },
-  "author": "Jonas Schmedtmann",
+  "author": "zyad elhady",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.23.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
