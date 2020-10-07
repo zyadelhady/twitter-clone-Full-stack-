@@ -74,8 +74,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   }
   if (req.body.username) {
     req.body.username.replace(/\s+/g, '');
-
-    ////////////////
   }
   const filterBody = filterObj(req.body, 'name', 'email', 'username', 'Bio');
 
