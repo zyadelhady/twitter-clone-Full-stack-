@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import classes from '../Auth.module.scss';
 import { Input } from '../../../component/Input/Input';
 import { FaTwitter } from 'react-icons/fa';
@@ -54,7 +54,7 @@ const Login = (props) => {
               type="email"
               placeholder="Your Email"
               name="email"
-              value={'demo@gmail.com'}
+              defaultValue={'demo@gmail.com'}
               refrence={emailRef}
             />
             <Input
@@ -62,7 +62,7 @@ const Login = (props) => {
               placeholder="Your Password"
               name="password"
               refrence={passwordRef}
-              value={'demo1234'}
+              defaultValue={'demo1234'}
             />
             <Button onClick={onSubmit} className={classes.Button}>
               Log in
