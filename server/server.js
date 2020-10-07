@@ -2,12 +2,6 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cloudinary = require('cloudinary').v2;
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API,
-  api_secret: process.env.CLOUD_SECRET
-});
-
 process.on('uncaughtException', err => {
   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
   console.log(err.name, err.message);
