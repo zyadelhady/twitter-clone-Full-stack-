@@ -24,6 +24,7 @@ export const Input = (props) => {
       ref={props.refrence}
       defaultValue={props.defaultValue}
       onChange={props.onChange}
+      value={props.value}
     />
   );
 };

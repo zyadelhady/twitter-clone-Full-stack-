@@ -1,4 +1,5 @@
 const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
 const catchAsync = require('../utils/catchAsync');
 const Tweet = require('../models/tweetModel');
 const User = require('../models/userModel');
@@ -34,8 +35,10 @@ exports.addTweet = catchAsync(async (req, res, next) => {
     ...req.body,
     user: req.user._id
   };
-  if (req.file) createObj.photo = req.file.filename;
-
+  if (req.file) {
+    const photo = await cloudinary.uploader.upload(`data/${req.file.filename}`);
+    createObj.photo = photo.secure_url;
+  }
   let newTweet = await Tweet.create(createObj);
 
   newTweet = { ...newTweet._doc, user: req.user };

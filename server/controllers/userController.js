@@ -85,7 +85,10 @@ exports.updateMe = catchAsync(async (req, res, next) => {
       filterBody.cover = photo.secure_url;
     }
     if (req.files.photo) {
-      filterBody.photo = req.files.photo[0].filename;
+      const photo = await cloudinary.uploader.upload(
+        `data/${req.files.photo[0].filename}`
+      );
+      filterBody.photo = photo.secure_url;
     }
   }
 

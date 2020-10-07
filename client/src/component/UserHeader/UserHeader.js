@@ -118,11 +118,7 @@ export const UserHeader = {
               <FiCamera />
             </i>
             <img
-              src={
-                props.coverImage
-                  ? props.coverImage
-                  : `https://twitter-clone-zyad.herokuapp.com/${props.user.cover}`
-              }
+              src={props.coverImage ? props.coverImage : props.user.cover}
               alt="user cover"
             />
           </label>
@@ -135,11 +131,7 @@ export const UserHeader = {
                 <FiCamera />
               </I>
               <Img
-                src={
-                  props.previewImage
-                    ? props.previewImage
-                    : `https://twitter-clone-zyad.herokuapp.com/${props.user.photo}`
-                }
+                src={props.previewImage ? props.previewImage : props.user.photo}
                 alt="user"
               />
             </label>

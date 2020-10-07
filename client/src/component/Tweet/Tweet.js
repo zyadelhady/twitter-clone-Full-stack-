@@ -85,13 +85,13 @@ const Tweet = (props) => {
               to={{
                 pathname: `/${props.handle}/photo/${props.tweetid}`,
                 state: {
-                  img: `https://twitter-clone-zyad.herokuapp.com/${props.tweetimg}`,
+                  img: props.tweetimg,
                 },
               }}
             >
               <div
                 style={{
-                  backgroundImage: `url(https://twitter-clone-zyad.herokuapp.com/${props.tweetimg})`,
+                  backgroundImage: `url(${props.tweetimg})`,
                 }}
                 className={classes.TheTweet_Right_Image}
               ></div>
