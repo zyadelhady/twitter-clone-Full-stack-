@@ -3,9 +3,9 @@ const dotenv = require('dotenv');
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
-  cloud_name: 'dd31ywtcr',
-  api_key: '168383977327976',
-  api_secret: 'ZIPB1_o7o4chBXD7l_IUP4ngQdg'
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API,
+  api_secret: process.env.CLOUD_SECRET
 });
 
 process.on('uncaughtException', err => {
