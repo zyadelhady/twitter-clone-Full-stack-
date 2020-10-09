@@ -23,7 +23,11 @@ app.use(helmet());
 
 // 1) GLOBAL MIDDLEWARES
 
-app.use(cors({ origin: 'https://localhost:3000', credentials: true }));
+if (process.env.NODE_ENV === 'development') {
+  app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+} else {
+  app.use(cors({ credentials: true }));
+}
 
 app.options('*', cors());
 
