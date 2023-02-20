@@ -19,4 +19,4 @@ you can change between light mode and dark mode .
 
 This frontend was bootstrapped with Create React App.
 
-you should install npm package in the server file and you can view the frontend code in the client folder
+you should install npm package in the server file and you can view the frontend code in the client folder.
